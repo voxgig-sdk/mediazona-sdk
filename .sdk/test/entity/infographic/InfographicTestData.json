@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "infographic": {
+      "INFOGRAPHIC00": {
+        "url": "sa"
+      },
+      "INFOGRAPHIC01": {
+        "url": "s14"
+      },
+      "INFOGRAPHIC02": {
+        "url": "s1e"
+      }
+    }
+  },
+  "new": {
+    "infographic": {
+      "infographic_ref01": {
+        "url": "s28"
+      }
+    }
+  }
+}

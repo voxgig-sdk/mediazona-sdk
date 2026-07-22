@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// Mediazona SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+MediazonaUtility::setRegistrar(function (MediazonaUtility $u): void {
+    $u->clean = [MediazonaClean::class, 'call'];
+    $u->done = [MediazonaDone::class, 'call'];
+    $u->make_error = [MediazonaMakeError::class, 'call'];
+    $u->feature_add = [MediazonaFeatureAdd::class, 'call'];
+    $u->feature_hook = [MediazonaFeatureHook::class, 'call'];
+    $u->feature_init = [MediazonaFeatureInit::class, 'call'];
+    $u->fetcher = [MediazonaFetcher::class, 'call'];
+    $u->make_fetch_def = [MediazonaMakeFetchDef::class, 'call'];
+    $u->make_context = [MediazonaMakeContext::class, 'call'];
+    $u->make_options = [MediazonaMakeOptions::class, 'call'];
+    $u->make_request = [MediazonaMakeRequest::class, 'call'];
+    $u->make_response = [MediazonaMakeResponse::class, 'call'];
+    $u->make_result = [MediazonaMakeResult::class, 'call'];
+    $u->make_point = [MediazonaMakePoint::class, 'call'];
+    $u->make_spec = [MediazonaMakeSpec::class, 'call'];
+    $u->make_url = [MediazonaMakeUrl::class, 'call'];
+    $u->param = [MediazonaParam::class, 'call'];
+    $u->prepare_auth = [MediazonaPrepareAuth::class, 'call'];
+    $u->prepare_body = [MediazonaPrepareBody::class, 'call'];
+    $u->prepare_headers = [MediazonaPrepareHeaders::class, 'call'];
+    $u->prepare_method = [MediazonaPrepareMethod::class, 'call'];
+    $u->prepare_params = [MediazonaPrepareParams::class, 'call'];
+    $u->prepare_path = [MediazonaPreparePath::class, 'call'];
+    $u->prepare_query = [MediazonaPrepareQuery::class, 'call'];
+    $u->result_basic = [MediazonaResultBasic::class, 'call'];
+    $u->result_body = [MediazonaResultBody::class, 'call'];
+    $u->result_headers = [MediazonaResultHeaders::class, 'call'];
+    $u->transform_request = [MediazonaTransformRequest::class, 'call'];
+    $u->transform_response = [MediazonaTransformResponse::class, 'call'];
+});

@@ -1,0 +1,22 @@
+# BasicInfographicFlow
+
+main: kit: flow: BasicInfographicFlow:
+{
+  entity: "infographic",
+  kind: "basic",
+  name: "BasicInfographicFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "infographic_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicInfographicFlow"
+}

@@ -1,0 +1,25 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      auth: false
+      contact: {
+        url: "https://github.com/l0v3m0n3y/mediazona"
+      }
+      description: "The Mediazona API provides access to various infographics and data from zona.media. Users can interact with the API to retrieve and utilize media-related content in their applications."
+      servers: [
+        {
+          description: "Mediazona API Server"
+          url: "https://s3.zona.media"
+        }
+      ]
+      summary: "The Mediazona API provides access to various infographics and data from zona.media."
+      title: "Mediazona API"
+      version: "1.0.0"
+      website: "https://github.com/l0v3m0n3y/mediazona"
+    }
+  }
+}
+

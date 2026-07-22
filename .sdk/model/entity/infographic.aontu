@@ -1,0 +1,56 @@
+# Entity: infographic
+
+main: kit: entity: infographic: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "url"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "infographic"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "cae8add5"
+                kind: "query"
+                name: "cachebuster"
+                orig: "cachebuster"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/infographics/g200w/urls.json.gz"
+          parts: [
+            "infographics"
+            "g200w"
+            "urls.json.gz"
+          ]
+          select: {
+            exist: [
+              "cachebuster"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

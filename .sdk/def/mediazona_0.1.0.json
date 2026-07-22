@@ -1,0 +1,119 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mediazona API",
+    "description": "The Mediazona API provides access to various infographics and data from zona.media. Users can interact with the API to retrieve and utilize media-related content in their applications.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://github.com/l0v3m0n3y/mediazona"
+    }
+  },
+  "externalDocs": {
+    "description": "API Documentation",
+    "url": "https://github.com/l0v3m0n3y/mediazona"
+  },
+  "servers": [
+    {
+      "url": "https://s3.zona.media",
+      "description": "Mediazona API Server"
+    }
+  ],
+  "paths": {
+    "/infographics/g200w/urls.json.gz": {
+      "get": {
+        "summary": "Get Infographics",
+        "description": "Retrieves infographics data from zona.media. Returns a compressed JSON file containing URLs and infographic information.",
+        "operationId": "getInfographics",
+        "tags": [
+          "Infographics"
+        ],
+        "parameters": [
+          {
+            "name": "cachebuster",
+            "in": "query",
+            "description": "Cache busting parameter to ensure fresh data retrieval",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "cae8add5"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response containing compressed infographics data",
+            "content": {
+              "application/gzip": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary",
+                  "description": "Gzipped JSON file containing infographics URLs and data"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "description": "Decompressed JSON data containing infographics information",
+                  "properties": {
+                    "urls": {
+                      "type": "array",
+                      "description": "Array of infographic URLs and metadata",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "url": {
+                            "type": "string",
+                            "format": "uri",
+                            "description": "URL to the infographic resource"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Resource not found"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "error": {
+                      "type": "string",
+                      "example": "Internal server error"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Infographics",
+      "description": "Operations related to retrieving infographics data from zona.media"
+    }
+  ]
+}
