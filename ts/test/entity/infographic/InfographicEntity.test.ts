@@ -63,7 +63,7 @@ describe('InfographicEntity', async () => {
     const infographic_ref01_ent = client.Infographic()
     const infographic_ref01_match: any = {}
 
-    const infographic_ref01_list = await infographic_ref01_ent.list(infographic_ref01_match)
+    const infographic_ref01_list = (await infographic_ref01_ent.list(infographic_ref01_match)).map((e: any) => e.data())
 
 
   })

@@ -37,7 +37,7 @@ class InfographicEntity extends MediazonaEntityBase<Infographic> {
 
 
 
-  async list(this: any, reqmatch?: InfographicListMatch, ctrl?: Control): Promise<Infographic[]> {
+  async list(this: any, reqmatch?: InfographicListMatch, ctrl?: Control): Promise<InfographicEntity[]> {
 
     const utility = this._utility
 

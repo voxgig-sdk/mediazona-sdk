@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Mediazona',
   }
 
 
@@ -83,6 +83,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/infographics/g200w/urls.json.gz",
               "parts": [
@@ -97,7 +98,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.urls`"
               },
               "index$": 0
             }

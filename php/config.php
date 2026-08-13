@@ -59,6 +59,7 @@ class MediazonaConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/infographics/g200w/urls.json.gz',
                   'parts' => [
@@ -73,7 +74,7 @@ class MediazonaConfig
                   ],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.urls`',
                   ],
                   'index$' => 0,
                 ],

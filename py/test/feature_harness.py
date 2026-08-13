@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import MediazonaControl
-from core.error import MediazonaError
-from core.result import MediazonaResult
-from core.spec import MediazonaSpec
+from mediazona_sdk.config import make_config
+from mediazona_sdk.features import _make_feature
+from mediazona_sdk.core.control import MediazonaControl
+from mediazona_sdk.core.error import MediazonaError
+from mediazona_sdk.core.result import MediazonaResult
+from mediazona_sdk.core.spec import MediazonaSpec
 
 
 # True when this SDK was generated with the named feature.

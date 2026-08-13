@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Mediazona SDK exists test
 
 import pytest
 from mediazona_sdk import MediazonaSDK

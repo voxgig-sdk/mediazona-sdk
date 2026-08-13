@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ MediazonaUtility.registrar = ->(u) {
   u.prepare_params = MediazonaUtilities::PrepareParams
   u.prepare_path = MediazonaUtilities::PreparePath
   u.prepare_query = MediazonaUtilities::PrepareQuery
+  u.graphql_body = MediazonaUtilities::GraphqlBody
+  u.graphql_errors = MediazonaUtilities::GraphqlErrors
   u.result_basic = MediazonaUtilities::ResultBasic
   u.result_body = MediazonaUtilities::ResultBody
   u.result_headers = MediazonaUtilities::ResultHeaders

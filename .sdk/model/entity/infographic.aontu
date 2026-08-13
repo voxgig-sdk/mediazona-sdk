@@ -44,7 +44,7 @@ main: kit: entity: infographic: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.urls`"
           }
         }
       ]

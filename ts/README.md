@@ -35,7 +35,9 @@ const client = new MediazonaSDK()
 
 ### 2. List infographic records
 
-`list()` resolves to an array of Infographic objects — iterate it directly:
+`list()` resolves to an array of Infographic ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const infographics = await client.Infographic().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = MediazonaSDK.test()
 
 const infographic = await client.Infographic().list()
-// infographic is a bare entity populated with mock response data
+// infographic is the entity, populated with mock response data
+// — call infographic.data() for the record itself
 console.log(infographic)
 ```
 

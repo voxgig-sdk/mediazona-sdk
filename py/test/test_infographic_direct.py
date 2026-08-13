@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from mediazona_sdk.utility.voxgig_struct import voxgig_struct as vs
 from mediazona_sdk import MediazonaSDK
-from core import helpers
+from mediazona_sdk.core import helpers
 from test import runner
 
 

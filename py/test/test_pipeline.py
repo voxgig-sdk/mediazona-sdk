@@ -16,11 +16,11 @@
 import pytest
 
 from mediazona_sdk import MediazonaSDK
-from core.error import MediazonaError
-from core.result import MediazonaResult
-from core.response import MediazonaResponse
-from core.spec import MediazonaSpec
-from feature.base_feature import MediazonaBaseFeature
+from mediazona_sdk.core.error import MediazonaError
+from mediazona_sdk.core.result import MediazonaResult
+from mediazona_sdk.core.response import MediazonaResponse
+from mediazona_sdk.core.spec import MediazonaSpec
+from mediazona_sdk.feature.base_feature import MediazonaBaseFeature
 
 
 def _client():

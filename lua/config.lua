@@ -53,6 +53,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/infographics/g200w/urls.json.gz",
                 ["parts"] = {
@@ -67,7 +68,7 @@ local function make_config()
                 },
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.urls`",
                 },
                 ["index$"] = 0,
               },
