@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from mediazona_sdk.config import make_config
+from mediazona_sdk.config import shared_config
 from mediazona_sdk.features import _make_feature
 from mediazona_sdk.core.control import MediazonaControl
 from mediazona_sdk.core.error import MediazonaError
@@ -24,7 +24,7 @@ from mediazona_sdk.core.spec import MediazonaSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

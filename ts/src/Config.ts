@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://s3.zona.media',
+    base: "https://s3.zona.media",
 
     headers: {
       "content-type": "application/json"
@@ -55,11 +55,8 @@ class Config {
     "infographic": {
       "fields": [
         {
-          "active": true,
           "name": "url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         }
       ],
       "name": "infographic",
@@ -69,16 +66,13 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "example": "cae8add5",
                     "kind": "query",
                     "name": "cachebuster",
                     "orig": "cachebuster",
-                    "reqd": false,
                     "type": "`$STRING`"
                   }
                 ]
@@ -99,11 +93,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body.urls`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         }
       },
       "relations": {

@@ -40,7 +40,7 @@ class MediazonaSDK
         $utility = new MediazonaUtility();
         $this->_utility = $utility;
 
-        $config = MediazonaConfig::make_config();
+        $config = MediazonaConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

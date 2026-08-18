@@ -28,7 +28,7 @@ class MediazonaSDK
     utility = MediazonaUtility.new
     @_utility = utility
 
-    config = MediazonaConfig.make_config
+    config = MediazonaConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
