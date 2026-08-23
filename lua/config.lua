@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "Mediazona",
+      slug = "mediazona",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -29,6 +32,7 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "url",
+            ["short"] = "URL to the infographic resource",
             ["type"] = "`$STRING`",
           },
         },

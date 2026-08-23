@@ -237,7 +237,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `url` |  |
+| `url` | URL to the infographic resource |
 
 Operations: List.
 
@@ -262,7 +262,7 @@ Create an instance: `infographic = client.Infographic`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `url` | `String` |  |
+| `url` | `String` | URL to the infographic resource |
 
 #### Example: List
 

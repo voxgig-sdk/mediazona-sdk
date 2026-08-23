@@ -247,7 +247,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `url` |  |
+| `url` | URL to the infographic resource |
 
 Operations: List.
 
@@ -272,7 +272,7 @@ Create an instance: `$infographic = $client->Infographic();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `url` | `string` |  |
+| `url` | `string` | URL to the infographic resource |
 
 #### Example: List
 

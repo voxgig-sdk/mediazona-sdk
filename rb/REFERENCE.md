@@ -93,7 +93,7 @@ infographic = client.Infographic
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | `String` | No |  |
+| `url` | `String` | No | URL to the infographic resource |
 
 ### Operations
 

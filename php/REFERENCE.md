@@ -92,7 +92,7 @@ $infographic = $client->Infographic();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | `string` | No |  |
+| `url` | `string` | No | URL to the infographic resource |
 
 ### Operations
 

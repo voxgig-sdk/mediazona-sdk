@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'Mediazona',
+        slug: "mediazona",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,6 +67,7 @@ class Config {
       "fields": [
         {
           "name": "url",
+          "short": "URL to the infographic resource",
           "type": "`$STRING`"
         }
       ],

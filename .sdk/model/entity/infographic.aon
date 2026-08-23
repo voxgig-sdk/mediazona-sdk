@@ -8,6 +8,7 @@ main: kit: entity: infographic: {
     {
       name: "url"
       req: false
+      short: "URL to the infographic resource"
       type: "`$STRING`"
     }
   ]

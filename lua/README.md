@@ -231,7 +231,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `url` |  |
+| `url` | URL to the infographic resource |
 
 Operations: List.
 
@@ -256,7 +256,7 @@ Create an instance: `local infographic = client:Infographic(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `url` | `string` |  |
+| `url` | `string` | URL to the infographic resource |
 
 #### Example: List
 

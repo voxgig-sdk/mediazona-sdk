@@ -243,7 +243,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `url` |  |
+| `url` | URL to the infographic resource |
 
 Operations: List.
 
@@ -268,7 +268,7 @@ Create an instance: `infographic = client.Infographic()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `url` | `str` |  |
+| `url` | `str` | URL to the infographic resource |
 
 #### Example: List
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "Mediazona",
+            "slug": "mediazona",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,6 +53,7 @@ def make_config():
         "fields": [
           {
             "name": "url",
+            "short": "URL to the infographic resource",
             "type": "`$STRING`",
           },
         ],

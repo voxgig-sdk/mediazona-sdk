@@ -19,6 +19,9 @@ module MediazonaConfig
     {
       "main" => {
         "name" => "Mediazona",
+        "slug" => "mediazona",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,6 +44,7 @@ module MediazonaConfig
           "fields" => [
             {
               "name" => "url",
+              "short" => "URL to the infographic resource",
               "type" => "`$STRING`",
             },
           ],

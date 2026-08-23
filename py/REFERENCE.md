@@ -87,7 +87,7 @@ infographic = client.Infographic()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `url` | `str` | No |  |
+| `url` | `str` | No | URL to the infographic resource |
 
 ### Operations
 
