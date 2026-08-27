@@ -28,6 +28,7 @@ module MediazonaConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
