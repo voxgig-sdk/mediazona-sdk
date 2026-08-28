@@ -10,7 +10,7 @@
 ---@field url? string
 
 ---@class InfographicListMatch
----@field url? string
+---@field cachebuster? string
 
 local M = {}
 

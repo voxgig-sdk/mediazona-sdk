@@ -10,6 +10,6 @@ export interface Infographic {
 }
 
 export interface InfographicListMatch {
-  url?: string
+  cachebuster?: string
 }
 

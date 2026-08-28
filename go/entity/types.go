@@ -19,7 +19,7 @@ type Infographic struct {
 
 // InfographicListMatch is the typed request payload for Infographic.ListTyped.
 type InfographicListMatch struct {
-	Url *string `json:"url,omitempty"`
+	Cachebuster *string `json:"cachebuster,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

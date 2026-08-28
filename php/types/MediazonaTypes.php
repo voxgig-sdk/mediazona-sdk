@@ -21,6 +21,6 @@ class Infographic
 /** Request payload for Infographic#list. */
 class InfographicListMatch
 {
-    public ?string $url = null;
+    public ?string $cachebuster = null;
 }
 

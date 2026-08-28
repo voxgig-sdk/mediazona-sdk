@@ -21,4 +21,4 @@ class Infographic(TypedDict, total=False):
 
 
 class InfographicListMatch(TypedDict, total=False):
-    url: str
+    cachebuster: str

@@ -19,10 +19,10 @@ Infographic = Struct.new(
 
 # Request payload for Infographic#list.
 #
-# @!attribute [rw] url
+# @!attribute [rw] cachebuster
 #   @return [String, nil]
 InfographicListMatch = Struct.new(
-  :url,
+  :cachebuster,
   keyword_init: true
 )
 
