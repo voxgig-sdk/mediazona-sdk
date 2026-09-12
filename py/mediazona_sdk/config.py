@@ -1,6 +1,14 @@
 # Mediazona SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -53,6 +61,7 @@ def make_config():
       "infographic": {
         "fields": [
           {
+            "format": "uri",
             "name": "url",
             "short": "URL to the infographic resource",
             "type": "`$STRING`",
@@ -79,10 +88,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/infographics/g200w/urls.json.gz",
-                "parts": [
-                  "infographics",
-                  "g200w",
-                  "urls.json.gz",
+                "segments": [
+                  {
+                    "lit": "infographics",
+                  },
+                  {
+                    "lit": "g200w",
+                  },
+                  {
+                    "lit": "urls.json.gz",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -93,6 +108,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.urls`",
                 },
+                "parts": [
+                  "infographics",
+                  "g200w",
+                  "urls.json.gz",
+                ],
               },
             ],
           },

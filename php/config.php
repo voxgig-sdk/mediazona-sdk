@@ -58,6 +58,7 @@ class MediazonaConfig
         'infographic' => [
           'fields' => [
             [
+              'format' => 'uri',
               'name' => 'url',
               'short' => 'URL to the infographic resource',
               'type' => '`$STRING`',
@@ -84,10 +85,16 @@ class MediazonaConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/infographics/g200w/urls.json.gz',
-                  'parts' => [
-                    'infographics',
-                    'g200w',
-                    'urls.json.gz',
+                  'segments' => [
+                    [
+                      'lit' => 'infographics',
+                    ],
+                    [
+                      'lit' => 'g200w',
+                    ],
+                    [
+                      'lit' => 'urls.json.gz',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -97,6 +104,11 @@ class MediazonaConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body.urls`',
+                  ],
+                  'parts' => [
+                    'infographics',
+                    'g200w',
+                    'urls.json.gz',
                   ],
                 ],
               ],

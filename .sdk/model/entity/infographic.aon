@@ -6,6 +6,7 @@ main: kit: entity: infographic: {
 
   fields: [
     {
+      format: "uri"
       name: "url"
       req: false
       short: "URL to the infographic resource"
@@ -33,10 +34,16 @@ main: kit: entity: infographic: {
           }
           method: "GET"
           orig: "/infographics/g200w/urls.json.gz"
-          parts: [
-            "infographics"
-            "g200w"
-            "urls.json.gz"
+          segments: [
+            {
+              lit: "infographics"
+            }
+            {
+              lit: "g200w"
+            }
+            {
+              lit: "urls.json.gz"
+            }
           ]
           select: {
             exist: [

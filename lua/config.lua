@@ -32,6 +32,7 @@ local function make_config()
       ["infographic"] = {
         ["fields"] = {
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["short"] = "URL to the infographic resource",
             ["type"] = "`$STRING`",
@@ -58,10 +59,16 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/infographics/g200w/urls.json.gz",
-                ["parts"] = {
-                  "infographics",
-                  "g200w",
-                  "urls.json.gz",
+                ["segments"] = {
+                  {
+                    ["lit"] = "infographics",
+                  },
+                  {
+                    ["lit"] = "g200w",
+                  },
+                  {
+                    ["lit"] = "urls.json.gz",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -71,6 +78,11 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.urls`",
+                },
+                ["parts"] = {
+                  "infographics",
+                  "g200w",
+                  "urls.json.gz",
                 },
               },
             },
