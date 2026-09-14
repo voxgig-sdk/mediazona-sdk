@@ -105,7 +105,7 @@ local results, err = client:Infographic():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
+| TypeScript | `@voxgig-sdk/mediazona-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
 | Python | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
 | PHP | `voxgig-sdk/mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/mediazona-sdk/go` | `go get github.com/voxgig-sdk/mediazona-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Infographic():list()
 ### TypeScript
 
 ```ts
-import { MediazonaSDK } from '@voxgig-sdk/mediazona'
+import { MediazonaSDK } from '@voxgig-sdk/mediazona-sdk'
 
 const client = new MediazonaSDK()
 

@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { MediazonaSDK } from '@voxgig-sdk/mediazona'
+import { MediazonaSDK } from '@voxgig-sdk/mediazona-sdk'
 
 const client = new MediazonaSDK()
 ```
@@ -403,7 +403,7 @@ mediazona/
 Import the SDK from the package root:
 
 ```ts
-import { MediazonaSDK } from '@voxgig-sdk/mediazona'
+import { MediazonaSDK } from '@voxgig-sdk/mediazona-sdk'
 ```
 
 ### Entity state
