@@ -18,5 +18,95 @@
         "url": "s28"
       }
     }
+  },
+  "requests": {
+    "GET /infographics/g200w/urls.json.gz": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getInfographics",
+        "parameters": [
+          {
+            "description": "Cache busting parameter to ensure fresh data retrieval",
+            "in": "query",
+            "name": "cachebuster",
+            "required": false,
+            "schema": {
+              "example": "cae8add5",
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/gzip": {
+                "schema": {
+                  "description": "Gzipped JSON file containing infographics URLs and data",
+                  "format": "binary",
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "description": "Decompressed JSON data containing infographics information",
+                  "properties": {
+                    "urls": {
+                      "description": "Array of infographic URLs and metadata",
+                      "items": {
+                        "properties": {
+                          "url": {
+                            "description": "URL to the infographic resource",
+                            "format": "uri",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response containing compressed infographics data"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Resource not found",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Resource not found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "example": "Internal server error",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Mediazona SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class MediazonaFeatures
@@ -14,8 +17,14 @@ class MediazonaFeatures
         switch ($name) {
             case "base":
                 return new MediazonaBaseFeature();
+            case "ratelimit":
+                return new MediazonaRatelimitFeature();
+            case "retry":
+                return new MediazonaRetryFeature();
             case "test":
                 return new MediazonaTestFeature();
+            case "timeout":
+                return new MediazonaTimeoutFeature();
             default:
                 return new MediazonaBaseFeature();
         }
@@ -31,7 +40,10 @@ class MediazonaFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { MediazonaSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('InfographicEntity', async () => {
 
     const live = 'TRUE' === process.env.MEDIAZONA_TEST_LIVE
     for (const op of ['list']) {
-      if (maybeSkipControl(t, 'entityOp', 'infographic.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'infographic.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set MEDIAZONA_TEST_INFOGRAPHIC_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"format":"uri","name":"url","req":false,"short":"URL to the infographic resource","type":"`$STRING`","index$":0}],"name":"infographic","op":{"list":{"input":"data","name":"list","points":[{"active":true,"args":{"query":[{"active":true,"example":"cae8add5","kind":"query","name":"cachebuster","orig":"cachebuster","reqd":false,"type":"`$STRING`","index$":0}]},"contract":{"id":"GET /infographics/g200w/urls.json.gz","json":"{\"operationId\":\"getInfographics\",\"parameters\":[{\"description\":\"Cache busting parameter to ensure fresh data retrieval\",\"in\":\"query\",\"name\":\"cachebuster\",\"required\":false,\"schema\":{\"example\":\"cae8add5\",\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/gzip\":{\"schema\":{\"description\":\"Gzipped JSON file containing infographics URLs and data\",\"format\":\"binary\",\"type\":\"string\"}},\"application/json\":{\"schema\":{\"description\":\"Decompressed JSON data containing infographics information\",\"properties\":{\"urls\":{\"description\":\"Array of infographic URLs and metadata\",\"items\":{\"properties\":{\"url\":{\"description\":\"URL to the infographic resource\",\"format\":\"uri\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response containing compressed infographics data\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Resource not found\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Resource not found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"example\":\"Internal server error\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/infographics/g200w/urls.json.gz","segments":[{"lit":"infographics"},{"lit":"g200w"},{"lit":"urls.json.gz"}],"select":{"exist":["cachebuster"]},"transform":{"req":"`reqdata`","res":"`body.urls`"},"index$":0}],"key$":"list"}},"relations":{"ancestors":[]},"key$":"infographic","name__orig":"infographic","Name":"Infographic","name_":"infographic","name-":"infographic","NAME":"INFOGRAPHIC","index$":0}, {"active":true,"entity":"infographic","key$":"BasicInfographicFlow","kind":"basic","name":"BasicInfographicFlow","param":{},"step":[{"active":true,"data":{},"input":{},"match":{},"op":"list","spec":[],"valid":[{"apply":"ItemExists","def":{"ref":"infographic_ref01"}}],"index$":0}]}, 'Infographic')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['MEDIAZONA_TEST_INFOGRAPHIC_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'MEDIAZONA_TEST_INFOGRAPHIC_ENTID': idmap,
     'MEDIAZONA_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.MEDIAZONA_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['MEDIAZONA_TEST_INFOGRAPHIC_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new MediazonaSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.MEDIAZONA_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

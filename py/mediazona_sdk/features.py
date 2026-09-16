@@ -1,12 +1,18 @@
 # Mediazona SDK feature factory
 
 from mediazona_sdk.feature.base_feature import MediazonaBaseFeature
+from mediazona_sdk.feature.ratelimit_feature import MediazonaRatelimitFeature
+from mediazona_sdk.feature.retry_feature import MediazonaRetryFeature
 from mediazona_sdk.feature.test_feature import MediazonaTestFeature
+from mediazona_sdk.feature.timeout_feature import MediazonaTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: MediazonaBaseFeature(),
+    "ratelimit": lambda: MediazonaRatelimitFeature(),
+    "retry": lambda: MediazonaRetryFeature(),
     "test": lambda: MediazonaTestFeature(),
+    "timeout": lambda: MediazonaTimeoutFeature(),
 }
 
 
