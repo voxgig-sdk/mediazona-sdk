@@ -105,12 +105,12 @@ local results, err = client:Infographic():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/mediazona-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
-| Python | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
-| PHP | `voxgig-sdk/mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
+| TypeScript | `@voxgig-sdk/mediazona-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/tags) |
+| Python | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/tags) |
+| PHP | `voxgig-sdk/mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/mediazona-sdk/go` | `go get github.com/voxgig-sdk/mediazona-sdk/go@latest` |
-| Ruby | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
-| Lua | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/releases) |
+| Ruby | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/tags) |
+| Lua | `voxgig-sdk-mediazona` | publish pending — [install from git tag](https://github.com/voxgig-sdk/mediazona-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/mediazona-sdk/go-cli` | `go install github.com/voxgig-sdk/mediazona-sdk/go-cli/cmd/mediazona@latest` |
 | Go MCP server | `github.com/voxgig-sdk/mediazona-sdk/go-mcp` | `go get github.com/voxgig-sdk/mediazona-sdk/go-mcp@latest` |
 
