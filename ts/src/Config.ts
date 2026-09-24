@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -138,10 +131,11 @@ class Config {
     "infographic": {
       "fields": [
         {
-          "format": "uri",
           "name": "url",
+          "title": "Url",
+          "type": "`$STRING`",
           "short": "URL to the infographic resource",
-          "type": "`$STRING`"
+          "format": "uri"
         }
       ],
       "name": "infographic",
@@ -151,17 +145,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "cae8add5",
-                    "kind": "query",
-                    "name": "cachebuster",
-                    "orig": "cachebuster",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/infographics/g200w/urls.json.gz",
@@ -176,20 +159,32 @@ class Config {
                   "lit": "urls.json.gz"
                 }
               ],
-              "select": {
-                "exist": [
-                  "cachebuster"
-                ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.urls`"
-              },
               "parts": [
                 "infographics",
                 "g200w",
                 "urls.json.gz"
-              ]
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.urls`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "cachebuster",
+                    "orig": "cachebuster",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "cae8add5"
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "cachebuster"
+                ]
+              }
             }
           ]
         }

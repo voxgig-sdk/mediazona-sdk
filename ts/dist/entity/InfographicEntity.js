@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.InfographicEntity = void 0;
 const MediazonaEntityBase_1 = require("../MediazonaEntityBase");
-// TODO: needs Entity superclass
 class InfographicEntity extends MediazonaEntityBase_1.MediazonaEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

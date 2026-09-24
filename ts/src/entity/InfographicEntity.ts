@@ -19,7 +19,6 @@ import type {
   InfographicListMatch,
 } from '../MediazonaTypes'
 
-// TODO: needs Entity superclass
 class InfographicEntity extends MediazonaEntityBase<Infographic> {
 
   constructor(client: MediazonaSDK, entopts: any) {

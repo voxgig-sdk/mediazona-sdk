@@ -43,7 +43,7 @@ local infographics, err = client:Infographic():list()
 if err then error(err) end
 
 for _, item in ipairs(infographics) do
-  print(item["url"])
+  print(item)
 end
 ```
 

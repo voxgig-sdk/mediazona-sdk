@@ -112,10 +112,11 @@ class MediazonaConfig
         'infographic' => [
           'fields' => [
             [
-              'format' => 'uri',
               'name' => 'url',
-              'short' => 'URL to the infographic resource',
+              'title' => 'Url',
               'type' => '`$STRING`',
+              'short' => 'URL to the infographic resource',
+              'format' => 'uri',
             ],
           ],
           'name' => 'infographic',
@@ -125,17 +126,6 @@ class MediazonaConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'example' => 'cae8add5',
-                        'kind' => 'query',
-                        'name' => 'cachebuster',
-                        'orig' => 'cachebuster',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/infographics/g200w/urls.json.gz',
@@ -150,19 +140,31 @@ class MediazonaConfig
                       'lit' => 'urls.json.gz',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'cachebuster',
-                    ],
-                  ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body.urls`',
-                  ],
                   'parts' => [
                     'infographics',
                     'g200w',
                     'urls.json.gz',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body.urls`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'cachebuster',
+                        'orig' => 'cachebuster',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                        'example' => 'cae8add5',
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'cachebuster',
+                    ],
                   ],
                 ],
               ],

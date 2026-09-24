@@ -90,10 +90,11 @@ func MakeConfig() map[string]any {
 			"infographic": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "uri",
 						"name": "url",
-						"short": "URL to the infographic resource",
+						"title": "Url",
 						"type": "`$STRING`",
+						"short": "URL to the infographic resource",
+						"format": "uri",
 					},
 				},
 				"name": "infographic",
@@ -103,17 +104,6 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "cae8add5",
-											"kind": "query",
-											"name": "cachebuster",
-											"orig": "cachebuster",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/infographics/g200w/urls.json.gz",
@@ -128,19 +118,31 @@ func MakeConfig() map[string]any {
 										"lit": "urls.json.gz",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"cachebuster",
-									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body.urls`",
-								},
 								"parts": []any{
 									"infographics",
 									"g200w",
 									"urls.json.gz",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body.urls`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "cachebuster",
+											"orig": "cachebuster",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "cae8add5",
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"cachebuster",
+									},
 								},
 							},
 						},

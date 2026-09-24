@@ -1,0 +1,70 @@
+# Entity: infographic
+
+main: kit: entity: infographic: {
+
+  alias: field: {}
+
+  fields: {
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "URL to the infographic resource"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "infographic"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /infographics/g200w/urls.json.gz"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "cae8add5"
+                k: "query"
+                n: "cachebuster"
+                or: "cachebuster"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/infographics/g200w/urls.json.gz"
+          q: {
+            exist: [
+              "cachebuster"
+            ]
+          }
+          s: [
+            {
+              lit: "infographics"
+            }
+            {
+              lit: "g200w"
+            }
+            {
+              lit: "urls.json.gz"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.urls`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
