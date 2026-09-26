@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/mediazona",
+  "name": "voxgig-sdk/mediazona-sdk",
   "description": "Unofficial generated PHP SDK for the Mediazona public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "mediazona"],
